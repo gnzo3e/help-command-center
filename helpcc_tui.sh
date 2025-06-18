@@ -563,10 +563,9 @@ Stashing:
 show_basic_commands() {
     dialog --title "Basic Commands" \
            --colors \
-           --msgbox "Basic 101:
-\Z1pwd\Z0
+           --msgbox "\Z1pwd\Z0
 - Print the current working directory
-- Example: /home/user/projects
+- Example: \Z1pwd\Z0
 
 \Z1ls\Z0
 - List files and directories
@@ -605,7 +604,7 @@ show_basic_commands() {
 \Z1echo\Z0
 - Print text or variables
 - \Z1echo "Hello"\Z0: Print text
-- \Z1echo '$'PATH\Z0: Print variable value
+- \Z1echo $PATH\Z0: Print variable value
 
 \Z1man\Z0
 - Show manual page for a command
@@ -618,11 +617,11 @@ show_basic_commands() {
 - Tip: Use \Z1!n\Z0 to repeat command number n
 
 \Z1Show PATH Directories\Z0
-\Z1echo '$'PATH | tr ":" "\\n"\Z0
+- \Z1echo $PATH | tr ":" "\\n"\Z0
 - Prints each directory in your PATH on a new line
 - Useful for debugging or checking your shell's search path
 - Tip: Pipe to grep to search for a directory:
-  \Z1echo '$'PATH | tr ":" "\\n" | grep local\Z0
+  \Z1echo $PATH | tr ":" "\\n" | grep local\Z0
 " 40 90
 }
 
