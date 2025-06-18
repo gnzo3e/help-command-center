@@ -604,7 +604,7 @@ Show contents of a file
 \Z1echo\Z0
 Print text or variables
   \Z1echo "Hello"\Z0: Print text
-  \Z1echo $PATH\Z0: Print variable value
+  \Z1echo \$PATH\Z0: Print variable value
 
 \Z1man\Z0
 Show manual page for a command
@@ -618,9 +618,11 @@ Show command history
 
 \Z1Show PATH Directories\Z0
 Prints each directory in your PATH on a new line
-  \Z1echo $PATH | tr ":" "\\n"\Z0
+  \Z1echo \$PATH | tr ":" "\\n"\Z0
   Tip: Pipe to grep to search for a directory:
-    \Z1echo $PATH | tr ":" "\\n" | grep local\Z0
+    \Z1echo \$PATH | tr ":" "\\n" | grep local\Z0
+
+Tip: Press OK to return to the main menu.
 " 40 90
 }
 
