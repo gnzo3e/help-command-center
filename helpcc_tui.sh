@@ -563,7 +563,8 @@ Stashing:
 show_basic_commands() {
     dialog --title "Basic Commands" \
            --colors \
-           --msgbox "\Z1pwd\Z0
+           --msgbox "Configuration:
+\Z1pwd\Z0
 - Print the current working directory
 - Example: /home/user/projects
 
