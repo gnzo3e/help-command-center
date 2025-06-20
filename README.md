@@ -68,7 +68,7 @@ cd tests
 
 This script runs basic checks on the help command center script.
 
-> **Note:** The commands and categories included in this tool are the ones I (the author) use most frequently in my daily workflow. This makes the Help Command Center especially practical and tailored for real-world usage.
+> **Note:** The commands and categories included in this tool are the ones I use most frequently in my daily workflow. This makes the Help Command Center especially practical and tailored for real-world usage.
 >
 > **Tip:** My preferred way to run this tool is by creating an alias named `helpcc` in my `.bash_aliases` file. This allows you to launch the Help Command Center from anywhere in your terminal with a simple command.
 >
