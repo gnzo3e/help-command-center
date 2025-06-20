@@ -13,6 +13,17 @@ Help Command Center is a terminal-based utility that provides quick access to he
 - Command reference lookup
 - System information display
 - Easy navigation through help topics
+- Organized help categories: Basic Commands, GPU Monitor, Package Management, System Monitoring, Network Commands, Git Commands
+
+## Dependencies
+
+- bash (shell interpreter)
+- dialog (for the TUI interface)
+
+Install dialog if needed:
+```bash
+sudo apt-get install dialog
+```
 
 ## Installation
 
@@ -33,6 +44,29 @@ Run the script:
 ```bash
 ./helpcc_tui.sh
 ```
+
+### Categories Available
+- **Basic Commands:** Common navigation, file, and shell utilities, organized and easy to read.
+- **GPU Monitor:** NVIDIA/AMD GPU monitoring commands.
+- **Package Management:** apt/dpkg package management.
+- **System Monitoring:** System, process, and hardware monitoring.
+- **Network Commands:** Network interface and configuration.
+- **Git Commands:** Git configuration, workflow, and inspection.
+
+## Configuration
+
+A sample `config.yaml` is included for future configuration options (display, search, logging, cache, aliases). The current script does not use this file, but it is provided for future extensibility.
+
+## Testing
+
+A test script is provided in the `tests/` directory:
+
+```bash
+cd tests
+./test_helpcc.sh
+```
+
+This script runs basic checks on the help command center script.
 
 ## Contributing
 
