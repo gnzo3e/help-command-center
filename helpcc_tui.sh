@@ -563,64 +563,64 @@ Stashing:
 show_basic_commands() {
     dialog --title "Basic Commands" \
            --colors \
-           --msgbox "\Z1 \pwd \Z0
-Print the current working directory
-  Example: \Z1\ \pwd \Z0
+           --msgbox "\Z1pwd\Z0
+- Print the current working directory
+- Example: pwd
 
-\Z1\ls\Z0
-List files and directories
-  -\Z1\ls -l\Z0: Long format (permissions, size, date)
-  -\Z1\ls -la\Z0: Include hidden files (those starting with .)
-  -Tip: Use \Z1\ls -lh\Z0 for human-readable sizes
+\Z1ls\Z0
+- List files and directories
+- ls -l : Long format (permissions, size, date)
+- ls -la : Include hidden files (those starting with .)
+- Tip: Use ls -lh for human-readable sizes
 
-\Z1\cd\Z0
-Change directory
-  \Z1\cd ~\Z0: Go to home directory
-  \Z1\cd -\Z0: Go to previous directory
-  \Z1cd ../dirname\Z0: Go up one directory and into 'dirname'
-  Example: \Z1cd /tmp\Z0
+\Z1cd\Z0
+- Change directory
+- cd ~ : Go to home directory
+- cd - : Go to previous directory
+- cd ../dirname : Go up one directory and into 'dirname'
+- Example: cd /tmp
 
-\Z1\cp\Z0
-Copy files or directories
-  \Z1\cp file.txt /tmp/\Z0: Copy file to /tmp
-  \Z1\cp -r folder/ /tmp/\Z0: Copy folder recursively
+\Z1cp\Z0
+- Copy files or directories
+- cp file.txt /tmp/ : Copy file to /tmp
+- cp -r folder/ /tmp/ : Copy folder recursively
 
-\Z1\mv\Z0
-Move or rename files/directories
-  \Z1\mv old.txt new.txt\Z0: Rename file
-  \Z1\mv file.txt /tmp/\Z0: Move file to /tmp
+\Z1mv\Z0
+- Move or rename files/directories
+- mv old.txt new.txt : Rename file
+- mv file.txt /tmp/ : Move file to /tmp
 
-\Z1\rm\Z0
-Remove files or directories
-  \Z1\rm file.txt\Z0: Remove file
-  \Z1\rm -r folder/\Z0: Remove folder recursively
-  \Z1\rm -rf folder/\Z0: Force remove folder and contents
-  Tip: Be careful with -rf!
+\Z1rm\Z0
+- Remove files or directories
+- rm file.txt : Remove file
+- rm -r folder/ : Remove folder recursively
+- rm -rf folder/ : Force remove folder and contents
+- Tip: Be careful with -rf!
 
-\Z1\cat\Z0
-Show contents of a file
-  Example: \Z1\cat file.txt\Z0
+\Z1cat\Z0
+- Show contents of a file
+- Example: cat file.txt
 
-\Z1\echo\Z0
-Print text or variables
-  \Z1\echo "Hello"\Z0: Print text
-  \Z1\echo \$PATH\Z0: Print variable value
+\Z1echo\Z0
+- Print text or variables
+- echo "Hello" : Print text
+- echo \$PATH : Print variable value
 
-\Z1\man\Z0
-Show manual page for a command
-  Example: \Z1\man ls\Z0
-  Tip: Press q to quit the manual
+\Z1man\Z0
+- Show manual page for a command
+- Example: man ls
+- Tip: Press q to quit the manual
 
-\Z1\history\Z0
-Show command history
-  Example: \Z1\history\Z0
-  Tip: Use \Z1!n\Z0 to repeat command number n
+\Z1history\Z0
+- Show command history
+- Example: history
+- Tip: Use !n to repeat command number n
 
-\Z1Show \PATH Directories\Z0
-Prints each directory in your PATH on a new line
-  \Z1echo \$PATH | tr ":" "\\n"\Z0
-  Tip: Pipe to grep to search for a directory:
-    \Z1echo \$PATH | tr ":" "\\n" | grep local\Z0
+\Z1Show PATH Directories\Z0
+- Prints each directory in your PATH on a new line
+- echo \$PATH | tr ":" "\\n" : Show each directory on a new line
+- Tip: Pipe to grep to search for a directory:
+  echo \$PATH | tr ":" "\\n" | grep local
 
 Tip: Press OK to return to the main menu.
 " 40 90
