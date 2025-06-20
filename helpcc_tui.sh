@@ -36,6 +36,73 @@ fi
 # Temporary file for command output
 TEMP_FILE=$(mktemp)
 
+# Function to display basic commands
+show_basic_commands() {
+    dialog --title "Basic Commands" \
+           --colors \
+           --msgbox "\Z1pwd\Z0
+- Print the current working directory
+- Example: pwd
+
+\Z1ls\Z0
+- List files and directories
+- ls -l : Long format (permissions, size, date)
+- ls -la : Include hidden files (those starting with .)
+- Tip: Use ls -lh for human-readable sizes
+
+\Z1cd\Z0
+- Change directory
+- cd ~ : Go to home directory
+- cd - : Go to previous directory
+- cd ../dirname : Go up one directory and into 'dirname'
+- Example: cd /tmp
+
+\Z1cp\Z0
+- Copy files or directories
+- cp file.txt /tmp/ : Copy file to /tmp
+- cp -r folder/ /tmp/ : Copy folder recursively
+
+\Z1mv\Z0
+- Move or rename files/directories
+- mv old.txt new.txt : Rename file
+- mv file.txt /tmp/ : Move file to /tmp
+
+\Z1rm\Z0
+- Remove files or directories
+- rm file.txt : Remove file
+- rm -r folder/ : Remove folder recursively
+- rm -rf folder/ : Force remove folder and contents
+- Tip: Be careful with -rf!
+
+\Z1cat\Z0
+- Show contents of a file
+- Example: cat file.txt
+
+\Z1echo\Z0
+- Print text or variables
+- echo "Hello" : Print text
+- echo \$PATH : Print variable value
+
+\Z1man\Z0
+- Show manual page for a command
+- Example: man ls
+- Tip: Press q to quit the manual
+
+\Z1history\Z0
+- Show command history
+- Example: history
+- Tip: Use !n to repeat command number n
+
+\Z1Show PATH Directories\Z0
+- Prints each directory in your PATH on a new line
+- echo \$PATH | tr ":" "\\n" : Show each directory on a new line
+- Tip: Pipe to grep to search for a directory:
+  echo \$PATH | tr ":" "\\n" | grep local
+
+Tip: Press OK to return to the main menu.
+" 40 90
+}
+
 # Function to display GPU commands
 show_gpu_commands() {
     dialog --title "GPU Monitor Commands" \
@@ -559,72 +626,6 @@ Stashing:
 - Safer than pop" 30 80
 }
 
-# Function to display basic commands
-show_basic_commands() {
-    dialog --title "Basic Commands" \
-           --colors \
-           --msgbox "\Z1pwd\Z0
-- Print the current working directory
-- Example: pwd
-
-\Z1ls\Z0
-- List files and directories
-- ls -l : Long format (permissions, size, date)
-- ls -la : Include hidden files (those starting with .)
-- Tip: Use ls -lh for human-readable sizes
-
-\Z1cd\Z0
-- Change directory
-- cd ~ : Go to home directory
-- cd - : Go to previous directory
-- cd ../dirname : Go up one directory and into 'dirname'
-- Example: cd /tmp
-
-\Z1cp\Z0
-- Copy files or directories
-- cp file.txt /tmp/ : Copy file to /tmp
-- cp -r folder/ /tmp/ : Copy folder recursively
-
-\Z1mv\Z0
-- Move or rename files/directories
-- mv old.txt new.txt : Rename file
-- mv file.txt /tmp/ : Move file to /tmp
-
-\Z1rm\Z0
-- Remove files or directories
-- rm file.txt : Remove file
-- rm -r folder/ : Remove folder recursively
-- rm -rf folder/ : Force remove folder and contents
-- Tip: Be careful with -rf!
-
-\Z1cat\Z0
-- Show contents of a file
-- Example: cat file.txt
-
-\Z1echo\Z0
-- Print text or variables
-- echo "Hello" : Print text
-- echo \$PATH : Print variable value
-
-\Z1man\Z0
-- Show manual page for a command
-- Example: man ls
-- Tip: Press q to quit the manual
-
-\Z1history\Z0
-- Show command history
-- Example: history
-- Tip: Use !n to repeat command number n
-
-\Z1Show PATH Directories\Z0
-- Prints each directory in your PATH on a new line
-- echo \$PATH | tr ":" "\\n" : Show each directory on a new line
-- Tip: Pipe to grep to search for a directory:
-  echo \$PATH | tr ":" "\\n" | grep local
-
-Tip: Press OK to return to the main menu.
-" 40 90
-}
 
 # Main menu
 while true; do
