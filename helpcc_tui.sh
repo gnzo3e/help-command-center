@@ -563,9 +563,9 @@ Stashing:
 show_basic_commands() {
     dialog --title "Basic Commands" \
            --colors \
-           --msgbox "\Z1\pwd\Z0
+           --msgbox "\Z1 \pwd \Z0
 Print the current working directory
-  Example: \Z\1pwd\Z0
+  Example: \Z1\ \pwd \Z0
 
 \Z1\ls\Z0
 List files and directories
