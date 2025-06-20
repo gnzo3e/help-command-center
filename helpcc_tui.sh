@@ -563,60 +563,60 @@ Stashing:
 show_basic_commands() {
     dialog --title "Basic Commands" \
            --colors \
-           --msgbox "\Z1pwd\Z0
+           --msgbox "\Z1\pwd\Z0
 Print the current working directory
-  Example: \Z1pwd\Z0
+  Example: \Z\1pwd\Z0
 
-\Z1ls\Z0
+\Z1\ls\Z0
 List files and directories
-  \Z1ls -l\Z0: Long format (permissions, size, date)
-  \Z1ls -la\Z0: Include hidden files (those starting with .)
-  Tip: Use \Z1ls -lh\Z0 for human-readable sizes
+  \Z1\ls -l\Z0: Long format (permissions, size, date)
+  \Z1\ls -la\Z0: Include hidden files (those starting with .)
+  Tip: Use \Z1\ls -lh\Z0 for human-readable sizes
 
-\Z1cd\Z0
+\Z1\cd\Z0
 Change directory
-  \Z1cd ~\Z0: Go to home directory
-  \Z1cd -\Z0: Go to previous directory
+  \Z1\cd ~\Z0: Go to home directory
+  \Z1\cd -\Z0: Go to previous directory
   \Z1cd ../dirname\Z0: Go up one directory and into 'dirname'
   Example: \Z1cd /tmp\Z0
 
-\Z1cp\Z0
+\Z1\cp\Z0
 Copy files or directories
-  \Z1cp file.txt /tmp/\Z0: Copy file to /tmp
-  \Z1cp -r folder/ /tmp/\Z0: Copy folder recursively
+  \Z1\cp file.txt /tmp/\Z0: Copy file to /tmp
+  \Z1\cp -r folder/ /tmp/\Z0: Copy folder recursively
 
-\Z1mv\Z0
+\Z1\mv\Z0
 Move or rename files/directories
-  \Z1mv old.txt new.txt\Z0: Rename file
-  \Z1mv file.txt /tmp/\Z0: Move file to /tmp
+  \Z1\mv old.txt new.txt\Z0: Rename file
+  \Z1\mv file.txt /tmp/\Z0: Move file to /tmp
 
-\Z1rm\Z0
+\Z1\rm\Z0
 Remove files or directories
-  \Z1rm file.txt\Z0: Remove file
-  \Z1rm -r folder/\Z0: Remove folder recursively
-  \Z1rm -rf folder/\Z0: Force remove folder and contents
+  \Z1\rm file.txt\Z0: Remove file
+  \Z1\rm -r folder/\Z0: Remove folder recursively
+  \Z1\rm -rf folder/\Z0: Force remove folder and contents
   Tip: Be careful with -rf!
 
-\Z1cat\Z0
+\Z1\cat\Z0
 Show contents of a file
-  Example: \Z1cat file.txt\Z0
+  Example: \Z1\cat file.txt\Z0
 
-\Z1echo\Z0
+\Z1\echo\Z0
 Print text or variables
-  \Z1echo "Hello"\Z0: Print text
-  \Z1echo \$PATH\Z0: Print variable value
+  \Z1\echo "Hello"\Z0: Print text
+  \Z1\echo \$PATH\Z0: Print variable value
 
-\Z1man\Z0
+\Z1\man\Z0
 Show manual page for a command
-  Example: \Z1man ls\Z0
+  Example: \Z1\man ls\Z0
   Tip: Press q to quit the manual
 
-\Z1history\Z0
+\Z1\history\Z0
 Show command history
-  Example: \Z1history\Z0
+  Example: \Z1\history\Z0
   Tip: Use \Z1!n\Z0 to repeat command number n
 
-\Z1Show PATH Directories\Z0
+\Z1Show \PATH Directories\Z0
 Prints each directory in your PATH on a new line
   \Z1echo \$PATH | tr ":" "\\n"\Z0
   Tip: Pipe to grep to search for a directory:
