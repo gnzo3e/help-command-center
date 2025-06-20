@@ -68,6 +68,28 @@ cd tests
 
 This script runs basic checks on the help command center script.
 
+> **Note:** The commands and categories included in this tool are the ones I (the author) use most frequently in my daily workflow. This makes the Help Command Center especially practical and tailored for real-world usage.
+>
+> **Tip:** My preferred way to run this tool is by creating an alias named `helpcc` in my `.bash_aliases` file. This allows you to launch the Help Command Center from anywhere in your terminal with a simple command.
+>
+> **To set this up:**
+> 1. Open (or create) your `~/.bash_aliases` file:
+>    ```bash
+>    nano ~/.bash_aliases
+>    ```
+> 2. Add the following line (replace `/path/to/helpcc_tui.sh` with the actual path):
+>    ```bash
+>    alias helpcc="/path/to/helpcc_tui.sh"
+>    ```
+> 3. Save and close the file, then reload your aliases:
+>    ```bash
+>    source ~/.bash_aliases
+>    ```
+> 4. Now you can run the tool from anywhere by typing:
+>    ```bash
+>    helpcc
+>    ```
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
