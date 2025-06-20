@@ -569,9 +569,9 @@ Print the current working directory
 
 \Z1\ls\Z0
 List files and directories
-  \Z1\ls -l\Z0: Long format (permissions, size, date)
-  \Z1\ls -la\Z0: Include hidden files (those starting with .)
-  Tip: Use \Z1\ls -lh\Z0 for human-readable sizes
+  -\Z1\ls -l\Z0: Long format (permissions, size, date)
+  -\Z1\ls -la\Z0: Include hidden files (those starting with .)
+  -Tip: Use \Z1\ls -lh\Z0 for human-readable sizes
 
 \Z1\cd\Z0
 Change directory
