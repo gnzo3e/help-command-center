@@ -20,11 +20,12 @@
 # ./helpcc_tui.sh
 #
 # Categories:
-# 1. GPU Monitor - NVIDIA and AMD GPU monitoring commands
-# 2. Package Management - System package management commands
-# 3. System Monitoring - System and process monitoring tools
-# 4. Network Commands - Network interface and configuration commands
-# 5. Git Commands - Git version control system commands
+# 1. Basic Commands - Directory navigation, file operations, shell utilities
+# 2. GPU Monitor - NVIDIA and AMD GPU monitoring commands
+# 3. Package Management - System package management commands
+# 4. System Monitoring - System and process monitoring tools
+# 5. Network Commands - Network interface and configuration commands
+# 6. Git Commands - Git version control system commands
 
 # Check if dialog is installed
 if ! command -v dialog &> /dev/null; then
@@ -33,10 +34,14 @@ if ! command -v dialog &> /dev/null; then
     exit 1
 fi
 
-# Temporary file for command output
+# Create a temporary file to store dialog output
+# This file is used to capture the user's menu selection from dialog
 TEMP_FILE=$(mktemp)
 
 # Function to display Basic commands
+# This dialog command creates a popup window with the title "GPU Monitor Commands"
+    # It uses the --colors flag to enable color formatting in the message box
+    # The --msgbox option displays the GPU commands information to the user
 show_basic_commands() {
     dialog --title "Basic Commands" --colors \
            --msgbox "Basic Commands:\n\n"\
@@ -598,8 +603,15 @@ Stashing:
 }
 
 
-# Main menu
+# Main menu - Infinite loop that keeps the TUI running until user exits
 while true; do
+    # Display the main menu using dialog utility
+    # --title: Sets the window title to "Helpful Command Center"
+    # --menu: Creates a menu with selectable options
+    # "Select a category:": Prompt text shown to user
+    # 17 60 7: Menu dimensions (height=17, width=60, menu_height=7)
+    # Following lines define menu options (number "description")
+    # 2> $TEMP_FILE: Redirects user selection to temporary file
     dialog --title "Helpful Command Center" \
            --menu "Select a category:" 17 60 7 \
            1 "Basic" \
@@ -610,16 +622,20 @@ while true; do
            6 "Git Commands" \
            0 "Exit" 2> $TEMP_FILE
 
+    # Read the user's menu selection from the temporary file
+    # dialog writes the selected option number to stderr (redirected to $TEMP_FILE)
     choice=$(cat $TEMP_FILE)
+    
+    # Process the user's choice using case statement
     case $choice in
-        1) show_basic_commands ;;
-        2) show_gpu_commands ;;
-        3) show_package_commands ;;
-        4) show_monitor_commands ;;
-        5) show_network_commands ;;
-        6) show_git_commands ;;
-        0) break ;;
-        *) break ;;
+        1) show_basic_commands ;;        # Call function to display basic commands
+        2) show_gpu_commands ;;          # Call function to display GPU monitoring commands
+        3) show_package_commands ;;      # Call function to display package management commands
+        4) show_monitor_commands ;;      # Call function to display system monitoring commands
+        5) show_network_commands ;;      # Call function to display network commands
+        6) show_git_commands ;;          # Call function to display git commands
+        0) break ;;                      # Exit the loop when user selects "Exit"
+        *) break ;;                      # Exit on any other input (ESC key, invalid choice)
     esac
 done
 
