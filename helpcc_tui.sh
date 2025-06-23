@@ -3,7 +3,7 @@
 # Help Command Center (HCC)
 # A terminal-based interactive command reference tool
 #
-# Author: Sugair AlSugair
+# Author: gnzo3e
 # License: MIT
 # Version: 1.0.0
 #
