@@ -37,3 +37,7 @@ temp/
 # Build output
 dist/
 build/ 
+
+# Dependency directories
+node_modules/
+bower_components/

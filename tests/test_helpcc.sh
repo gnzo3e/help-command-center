@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Test script for Help Command Center
+# Test script for Help Command Center (TUI)
 
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+NC='\033[0m' # No Color 
 
 # Test counter
 TESTS_PASSED=0
 TESTS_FAILED=0
 
 # Function to run a test
+# Usage: run_test <test_name> <test_command> <expected_output>
+# This function runs a command and checks if the output matches the expected output.
 run_test() {
     local test_name=$1
     local test_command=$2
