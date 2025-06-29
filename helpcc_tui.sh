@@ -26,6 +26,7 @@
 # 4. System Monitoring - System and process monitoring tools
 # 5. Network Commands - Network interface and configuration commands
 # 6. Git Commands - Git version control system commands
+# 7. Docker Commands - Docker container and image management commands
 
 # Check if dialog is installed
 if ! command -v dialog &> /dev/null; then
@@ -613,6 +614,146 @@ Stashing:
 - Safer than pop" 30 80
 }
 
+# Function to display docker commands
+show_docker_commands() {
+    dialog --title "Docker Commands" \
+           --colors \
+           --msgbox "Container Management:
+\Z1docker ps\Z0
+- List running containers
+- Shows container ID, image, status, ports
+
+\Z1docker ps -a\Z0
+- List all containers (running and stopped)
+- Shows complete container history
+
+\Z1docker run image_name\Z0
+- Create and start a new container
+- Example: \Z1docker run nginx\Z0
+
+\Z1docker run -it image_name\Z0
+- Run container interactively with TTY
+- Example: \Z1docker run -it ubuntu bash\Z0
+
+\Z1docker run -d image_name\Z0
+- Run container in detached mode (background)
+- Example: \Z1docker run -d nginx\Z0
+
+\Z1docker run -p host_port:container_port image_name\Z0
+- Map ports between host and container
+- Example: \Z1docker run -p 8080:80 nginx\Z0
+
+\Z1docker start container_id\Z0
+- Start a stopped container
+- Example: \Z1docker start abc123\Z0
+
+\Z1docker stop container_id\Z0
+- Stop a running container
+- Example: \Z1docker stop abc123\Z0
+
+\Z1docker restart container_id\Z0
+- Restart a container
+- Example: \Z1docker restart abc123\Z0
+
+\Z1docker rm container_id\Z0
+- Remove a stopped container
+- Example: \Z1docker rm abc123\Z0
+
+\Z1docker rm -f container_id\Z0
+- Force remove a running container
+- Example: \Z1docker rm -f abc123\Z0
+
+Image Management:
+\Z1docker images\Z0
+- List all local Docker images
+- Shows repository, tag, image ID, size
+
+\Z1docker pull image_name\Z0
+- Download an image from registry
+- Example: \Z1docker pull ubuntu:latest\Z0
+
+\Z1docker build -t tag_name .\Z0
+- Build image from Dockerfile
+- Example: \Z1docker build -t myapp .\Z0
+
+\Z1docker rmi image_id\Z0
+- Remove a Docker image
+- Example: \Z1docker rmi abc123\Z0
+
+\Z1docker rmi -f image_id\Z0
+- Force remove a Docker image
+- Example: \Z1docker rmi -f abc123\Z0
+
+\Z1docker tag source_image target_image\Z0
+- Tag an image with new name
+- Example: \Z1docker tag myapp:latest myapp:v1.0\Z0
+
+Container Interaction:
+\Z1docker exec -it container_id bash\Z0
+- Execute bash inside running container
+- Example: \Z1docker exec -it abc123 bash\Z0
+
+\Z1docker exec container_id command\Z0
+- Execute command in running container
+- Example: \Z1docker exec abc123 ls -la\Z0
+
+\Z1docker logs container_id\Z0
+- View container logs
+- Example: \Z1docker logs abc123\Z0
+
+\Z1docker logs -f container_id\Z0
+- Follow container logs in real-time
+- Example: \Z1docker logs -f abc123\Z0
+
+\Z1docker inspect container_id\Z0
+- Show detailed container information
+- Example: \Z1docker inspect abc123\Z0
+
+\Z1docker cp file container_id:/path\Z0
+- Copy files to container
+- Example: \Z1docker cp file.txt abc123:/tmp/\Z0
+
+\Z1docker cp container_id:/path file\Z0
+- Copy files from container
+- Example: \Z1docker cp abc123:/tmp/file.txt .\Z0
+
+System Management:
+\Z1docker system df\Z0
+- Show Docker disk usage
+- Displays space used by images, containers, volumes
+
+\Z1docker system prune\Z0
+- Remove unused Docker objects
+- Cleans up stopped containers, unused networks, images
+
+\Z1docker system prune -a\Z0
+- Remove all unused Docker objects
+- Includes unused images (not just dangling)
+
+\Z1docker volume ls\Z0
+- List Docker volumes
+- Shows volume names and drivers
+
+\Z1docker network ls\Z0
+- List Docker networks
+- Shows network names, drivers, scope
+
+\Z1docker info\Z0
+- Display Docker system information
+- Shows containers, images, storage driver info
+
+\Z1docker version\Z0
+- Show Docker version information
+- Displays client and server versions
+
+Common Tips:
+- Use container names instead of IDs when possible
+- Always specify tags to avoid 'latest' confusion
+- Use -f flag to follow logs in real-time
+- Regular cleanup with 'docker system prune'
+- Use 'docker run --rm' for temporary containers" 30 80
+}
+
 
 # Main menu - Infinite loop that keeps the TUI running until user exits
 while true; do
@@ -620,17 +761,18 @@ while true; do
     # --title: Sets the window title to "Helpful Command Center"
     # --menu: Creates a menu with selectable options
     # "Select a category:": Prompt text shown to user
-    # 17 60 7: Menu dimensions (height=17, width=60, menu_height=7)
+    # 18 60 8: Menu dimensions (height=18, width=60, menu_height=8)
     # Following lines define menu options (number "description")
     # 2> $TEMP_FILE: Redirects user selection to temporary file
     dialog --title "Helpful Command Center" \
-           --menu "Select a category:" 17 60 7 \
+           --menu "Select a category:" 18 60 8 \
            1 "Basic" \
            2 "GPU Monitor" \
            3 "Package Management" \
            4 "System Monitoring" \
            5 "Network Commands" \
            6 "Git Commands" \
+           7 "Docker Commands" \
            0 "Exit" 2> $TEMP_FILE
 
     # Read the user's menu selection from the temporary file
@@ -645,6 +787,7 @@ while true; do
         4) show_monitor_commands ;;      # Call function to display system monitoring commands
         5) show_network_commands ;;      # Call function to display network commands
         6) show_git_commands ;;          # Call function to display git commands
+        7) show_docker_commands ;;       # Call function to display docker commands
         0) break ;;                      # Exit the loop when user selects "Exit"
         *) break ;;                      # Exit on any other input (ESC key, invalid choice)
     esac
