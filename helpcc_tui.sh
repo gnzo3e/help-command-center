@@ -76,6 +76,17 @@ show_basic_commands() {
 "    • !n: repeat entry n\n\n"\
 "  \Z1PATH Listing\Z0     Show each PATH entry on new line\n"\
 "    • echo \$PATH | tr ':' '\\n'\n\n"\
+"  \Z1uname -m\Z0        Show machine architecture\n"\
+"    • Displays processor type (x86_64, arm64, etc.)\n"\
+"    • Useful for determining system compatibility\n\n"\
+"  \Z1lsblk\Z0          List block devices\n"\
+"    • Shows disks, partitions, and mount points\n"\
+"    • Displays device tree structure\n"\
+"    • Use lsblk -f for filesystem information\n\n"\
+"  \Z1lsb_release -a\Z0  Show distribution information\n"\
+"    • Displays Linux distribution details\n"\
+"    • Shows version, codename, description\n"\
+"    • Useful for identifying OS version\n\n"\
 "Tip: Press OK to return to the main menu" 40 80
 }
 
